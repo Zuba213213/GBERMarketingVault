@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greenbelt Event Rentals — Marketing Vault</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:          #0d1a12;
+  --bg-card:     #111e16;
+  --bg-raised:   #172a1e;
+  --green-deep:  #1e3a2f;
+  --green-mid:   #2d5a3d;
+  --green-accent:#4a9462;
+  --green-bright:#5eb87a;
+  --sage:        #8ab89a;
+  --cream:       #f2ede4;
+  --bark:        #c49a6c;
+  --white:       #ffffff;
+  --text-primary:#e8f0eb;
+  --text-secondary:#7fa88a;
+  --text-muted:  #4a6a54;
+  --border:      rgba(74,148,98,0.15);
+  --border-hover:rgba(94,184,122,0.35);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { overflow-x:hidden; }
+body {
+  background:var(--bg);
+  font-family:'DM Sans', sans-serif;
+  font-size:16px;
+  line-height:1.7;
+  color:var(--text-primary);
+  width:100%;
+  overflow-x:hidden;
+  min-height:100vh;
+}
+
+/* PROGRESS DOTS */
+.dots {
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  padding:24px 24px 0;
+}
+.dot {
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--text-muted);
+  transition:background 0.3s;
+}
+.dot.active { background:var(--green-accent); }
+
+/* HEADER */
+.header {
+  padding:40px 24px 20px;
+  text-align:center;
+  border-bottom:1px solid var(--border);
+  max-width:600px;
+  margin:0 auto;
+}
+.header-meta {
+  font-size:10px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  margin-bottom:20px;
+  display:block;
+}
+.header-logo {
+  font-family:'DM Serif Display', serif;
+  font-size:clamp(28px,6vw,40px);
+  color:var(--white);
+  line-height:1.15;
+  margin-bottom:8px;
+  display:block;
+}
+.header-tagline {
+  font-size:14px;
+  color:var(--text-secondary);
+  font-weight:300;
+  display:block;
+  margin-bottom:28px;
+}
+.header-quote {
+  font-family:'DM Serif Display', serif;
+  font-size:15px;
+  font-style:italic;
+  color:var(--sage);
+  padding:16px 20px;
+  border-left:2px solid var(--green-accent);
+  text-align:left;
+  background:var(--bg-card);
+  line-height:1.5;
+  margin-bottom:0;
+}
+
+/* SECTION TITLE */
+.vault-label {
+  font-size:10px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  display:block;
+  padding:32px 24px 14px;
+  max-width:600px;
+  margin:0 auto;
+  border-bottom:1px solid var(--border);
+}
+
+/* CARDS */
+.cards {
+  max-width:600px;
+  margin:0 auto;
+  padding:0 0 80px;
+}
+
+.card {
+  display:block;
+  text-decoration:none;
+  border-bottom:1px solid var(--border);
+  padding:24px;
+  transition:background 0.2s;
+  cursor:pointer;
+}
+.card:hover {
+  background:var(--bg-card);
+  border-bottom-color:var(--border-hover);
+}
+
+.card-top {
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+.card-num {
+  font-size:10px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  flex-shrink:0;
+  padding-top:3px;
+}
+.card-tag {
+  font-size:9px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--green-accent);
+  border:1px solid var(--green-accent);
+  padding:3px 8px;
+  flex-shrink:0;
+  opacity:0.8;
+}
+.card-title {
+  font-family:'DM Serif Display', serif;
+  font-size:clamp(18px,4vw,22px);
+  color:var(--white);
+  line-height:1.25;
+  margin-bottom:8px;
+  flex:1;
+}
+.card-desc {
+  font-size:14px;
+  color:var(--text-secondary);
+  line-height:1.6;
+  font-weight:300;
+  margin-bottom:14px;
+}
+.card-footer {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.card-path {
+  font-family:monospace;
+  font-size:11px;
+  color:var(--text-muted);
+}
+.card-arrow {
+  font-size:18px;
+  color:var(--green-bright);
+  transition:transform 0.2s;
+}
+.card:hover .card-arrow {
+  transform:translateX(4px);
+}
+
+/* FOOTER */
+.footer {
+  border-top:1px solid var(--border);
+  padding:28px 24px;
+  text-align:center;
+  max-width:600px;
+  margin:0 auto;
+}
+.footer-line {
+  font-size:11px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  line-height:1.8;
+}
+.footer-brand {
+  font-family:'DM Serif Display', serif;
+  font-size:13px;
+  color:var(--green-bright);
+}
+</style>
+</head>
+<body>
+
+<!-- DOTS -->
+<div class="dots">
+  <div class="dot active"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+  <span class="header-meta">JRZ Consulting Solutions × Greenbelt Event Rentals</span>
+  <span class="header-logo">Greenbelt<br>Event Rentals</span>
+  <span class="header-tagline">Austin's Owner-Operated Tent & Event Rental Company</span>
+  <div class="header-quote">
+    "The brand is working. The referral engine is real. The gap to $1M is not a marketing budget problem — it is an architecture problem."
+  </div>
+</div>
+
+<!-- VAULT LABEL -->
+<span class="vault-label">Marketing Vault — Strategy Repository</span>
+
+<!-- CARDS -->
+<div class="cards">
+
+  <a class="card" href="greenbelt_brand_consistency.html">
+    <div class="card-top">
+      <span class="card-num">01 —</span>
+      <span class="card-tag">Foundation</span>
+    </div>
+    <div class="card-title">Brand Consistency Guide</div>
+    <div class="card-desc">Single source of truth. Tom's voice, color palette, typography, photography direction, channel rules, and the pre-publish checklist. Read this before producing anything in Greenbelt's name.</div>
+    <div class="card-footer">
+      <span class="card-path">/greenbelt_brand_consistency</span>
+      <span class="card-arrow">→</span>
+    </div>
+  </a>
+
+  <a class="card" href="greenbelt_icp.html">
+    <div class="card-top">
+      <span class="card-num">02 —</span>
+      <span class="card-tag">Audience</span>
+    </div>
+    <div class="card-title">Ideal Client Profile</div>
+    <div class="card-desc">Who Greenbelt actually serves — the three segments, their emotional context when they search, what they care about, what they fear, and exactly what Tom needs to say to earn the booking.</div>
+    <div class="card-footer">
+      <span class="card-path">/greenbelt_icp</span>
+      <span class="card-arrow">→</span>
+    </div>
+  </a>
+
+  <a class="card" href="greenbelt_brand_tone.html">
+    <div class="card-top">
+      <span class="card-num">03 —</span>
+      <span class="card-tag">Copy</span>
+    </div>
+    <div class="card-title">Brand Tone & Copy Framework</div>
+    <div class="card-desc">The four axes of Tom's voice. Writing rules for email, social, and web. Correct and incorrect examples for every channel. The system that keeps every output sounding like one person.</div>
+    <div class="card-footer">
+      <span class="card-path">/greenbelt_brand_tone</span>
+      <span class="card-arrow">→</span>
+    </div>
+  </a>
+
+  <a class="card" href="greenbelt_email_execution_v2.html">
+    <div class="card-top">
+      <span class="card-num">04 —</span>
+      <span class="card-tag">Execution</span>
+    </div>
+    <div class="card-title">Email Cadence — Live Sequences</div>
+    <div class="card-desc">Four sequences. Twelve emails. Full Mailchimp setup instructions, dataset prerequisites, and copy ready to send. Wedding Anniversary · Corporate Seasonal · Personal/Birthday · Inquiry Reactivation.</div>
+    <div class="card-footer">
+      <span class="card-path">/greenbelt_email_execution</span>
+      <span class="card-arrow">→</span>
+    </div>
+  </a>
+
+  <a class="card" href="greenbelt_roadmap.html">
+    <div class="card-top">
+      <span class="card-num">05 —</span>
+      <span class="card-tag">Strategy</span>
+    </div>
+    <div class="card-title">Growth Roadmap — $500K to $1M</div>
+    <div class="card-desc">The 90-day Build → Optimize → Activate framework. Every revenue lever, the math behind each one, and the sequenced plan that gets Greenbelt to $1M without adding inventory or ad spend.</div>
+    <div class="card-footer">
+      <span class="card-path">/greenbelt_roadmap</span>
+      <span class="card-arrow">→</span>
+    </div>
+  </a>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-line">
+    <span class="footer-brand">Greenbelt Event Rentals</span> × JRZ Consulting Solutions<br>
+    Confidential · Internal Use Only · April 2026
+  </div>
+</div>
+
+</body>
+</html>
