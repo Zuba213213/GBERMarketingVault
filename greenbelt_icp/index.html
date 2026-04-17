@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greenbelt Event Rentals — Ideal Client Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0d1a12; --bg-card:#111e16; --bg-raised:#172a1e;
+  --green-accent:#4a9462; --green-bright:#5eb87a; --sage:#8ab89a;
+  --bark:#c49a6c; --white:#ffffff;
+  --text-primary:#e8f0eb; --text-secondary:#7fa88a; --text-muted:#4a6a54;
+  --border:rgba(74,148,98,0.15); --border-bright:rgba(94,184,122,0.3);
+  --red-dim:rgba(139,60,60,0.15); --red-border:rgba(180,80,80,0.3);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{overflow-x:hidden;scroll-behavior:smooth;}
+body{background:var(--bg);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;color:var(--text-primary);width:100%;overflow-x:hidden;}
+
+.top-bar{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:10px;}
+.top-brand{font-family:'DM Serif Display',serif;font-size:14px;color:var(--green-bright);}
+.top-tag{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);}
+.back-link{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-secondary);text-decoration:none;display:flex;align-items:center;gap:5px;}
+.back-link:hover{color:var(--green-bright);}
+
+.hero{padding:64px 24px 48px;max-width:620px;margin:0 auto;text-align:center;}
+.hero-eyebrow{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--green-accent);display:block;margin-bottom:20px;}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(28px,6vw,46px);line-height:1.15;color:var(--white);margin-bottom:16px;}
+.hero h1 em{font-style:italic;color:var(--green-bright);}
+.hero-sub{font-size:16px;color:var(--text-secondary);font-weight:300;line-height:1.6;}
+.hero-rule{width:36px;height:2px;background:var(--green-accent);margin:28px auto 0;}
+
+.content{max-width:640px;margin:0 auto;padding:0 24px 80px;}
+.section{margin-bottom:56px;}
+.section-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-accent);display:block;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border);}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(20px,4vw,28px);color:var(--white);line-height:1.2;margin-bottom:8px;}
+.section-title em{font-style:italic;color:var(--green-bright);}
+.section-intro{font-size:15px;color:var(--text-secondary);margin-bottom:24px;font-weight:300;line-height:1.65;}
+p{font-size:15px;color:var(--text-secondary);margin-bottom:12px;line-height:1.7;}
+p strong{color:var(--text-primary);font-weight:600;}
+p:last-child{margin-bottom:0;}
+
+.callout{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--green-accent);padding:20px 22px;margin:20px 0;}
+.callout-label{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-accent);display:block;margin-bottom:8px;}
+.callout p{font-size:14.5px;margin-bottom:0;}
+
+/* SEGMENT CARDS */
+.segment{background:var(--bg-card);border:1px solid var(--border);margin-bottom:2px;}
+.segment-header{padding:18px 22px;border-bottom:1px solid var(--border);}
+.segment-num{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-accent);display:block;margin-bottom:4px;}
+.segment-name{font-family:'DM Serif Display',serif;font-size:20px;color:var(--white);}
+.segment-name em{font-style:italic;color:var(--green-bright);}
+.segment-trigger{font-size:12px;color:var(--text-secondary);margin-top:4px;display:block;}
+.segment-body{padding:18px 22px;}
+.segment-body p{font-size:14.5px;margin-bottom:10px;}
+
+/* DATA ROWS */
+.data-row{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.data-row:last-child{border-bottom:none;}
+.data-key{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--green-accent);min-width:100px;flex-shrink:0;padding-top:2px;font-weight:500;}
+.data-val{font-size:14.5px;color:var(--text-secondary);line-height:1.6;}
+.data-val strong{color:var(--text-primary);}
+
+/* QUOTE BLOCK */
+.quote-block{background:var(--bg-raised);border-left:3px solid var(--green-bright);padding:16px 20px;margin:12px 0;}
+.quote-text{font-family:'DM Serif Display',serif;font-size:16px;font-style:italic;color:var(--text-primary);line-height:1.5;margin-bottom:4px;}
+.quote-context{font-size:12px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;}
+
+/* WHAT CONVERTS */
+.convert-item{padding:16px 0;border-bottom:1px solid var(--border);}
+.convert-item:last-child{border-bottom:none;}
+.convert-label{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--green-accent);display:block;margin-bottom:6px;}
+.convert-text{font-size:14.5px;color:var(--text-secondary);line-height:1.65;}
+.convert-text strong{color:var(--text-primary);}
+
+/* OBJECTION PAIRS */
+.objection{background:var(--bg-card);border:1px solid var(--border);padding:18px 20px;margin-bottom:2px;}
+.obj-says{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:4px;}
+.obj-quote{font-size:15px;font-style:italic;color:var(--text-primary);margin-bottom:10px;}
+.obj-means{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--green-accent);display:block;margin-bottom:4px;}
+.obj-answer{font-size:14px;color:var(--text-secondary);}
+
+.divider{border:none;border-top:1px solid var(--border);margin:40px 0;}
+
+.site-footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;}
+.footer-brand{font-family:'DM Serif Display',serif;font-size:14px;color:var(--green-bright);margin-bottom:6px;}
+.footer-meta{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);line-height:1.8;}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-brand">Greenbelt Event Rentals</div>
+  <div class="top-tag">Marketing Vault · 02</div>
+  <a href="greenbelt_vault_index.html" class="back-link">← Vault</a>
+</div>
+
+<div class="hero">
+  <span class="hero-eyebrow">02 — Audience</span>
+  <h1>Ideal Client <em>Profile</em></h1>
+  <div class="hero-sub">Three segments. Three emotional contexts. The exact words they use when they're searching for what Tom offers.</div>
+  <div class="hero-rule"></div>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <span class="section-label">Overview</span>
+    <div class="section-title">Who Is Already <em>Walking Toward You</em></div>
+    <div class="section-intro">Greenbelt serves three distinct client types. Each arrives with different emotional stakes, different urgency levels, and different reasons to choose Tom over a larger competitor.</div>
+
+    <p>Understanding these segments isn't an academic exercise — it determines what to say, when to say it, and which channel to say it on. <strong>The same person planning a backyard birthday party and the same person planning their daughter's wedding have completely different emotional states when they search for "tent rental Austin."</strong> The copy, the timing, and the offer need to match where they actually are.</p>
+
+    <div class="callout">
+      <span class="callout-label">The Unifying Thread</span>
+      <p>Across all three segments, the single thing that converts is the same: <strong>Tom</strong>. The owner. The person they'll actually talk to. In a market dominated by chains and recently-merged institutions with documented service failures, a real person who answers the phone, knows their order, and shows up on time is the differentiator. Market it accordingly.</p>
+    </div>
+  </div>
+
+  <!-- SEGMENT 1 WEDDING -->
+  <div class="section">
+    <span class="section-label">Segment 01</span>
+    <div class="section-title">The Wedding <em>Client</em></div>
+    <div class="section-intro">The highest emotional stakes. The longest planning window. The most powerful referral engine.</div>
+
+    <div class="segment">
+      <div class="segment-header">
+        <span class="segment-num">Primary Avatar</span>
+        <div class="segment-name">The <em>Backyard Bride</em></div>
+        <span class="segment-trigger">Trigger: Planning an intimate outdoor or at-home wedding in Austin or Central Texas</span>
+      </div>
+      <div class="segment-body">
+
+        <div class="data-row">
+          <span class="data-key">Who They Are</span>
+          <div class="data-val">Engaged couple, typically 25–40, planning a wedding that feels <strong>personal, not performative</strong>. Prioritizes authenticity over grandeur. Drawn to Greenbelt because the pricing is transparent and the experience promises the owner's direct involvement — not a sales rep who hands them off.</div>
+        </div>
+        <div class="data-row">
+          <span class="data-key">Guest Count</span>
+          <div class="data-val">40–120 guests. The 40 and 60-person packages are primary entry points. Large enough to need professional equipment, small enough to want a personal experience.</div>
+        </div>
+        <div class="data-row">
+          <span class="data-key">Budget Mindset</span>
+          <div class="data-val">Spending $799–$2,500+ on tent and equipment rentals. <strong>Value-conscious but not cheap</strong> — they will pay more for certainty and communication. What they cannot afford is a bad experience on the most important day of their life.</div>
+        </div>
+        <div class="data-row">
+          <span class="data-key">Emotional State</span>
+          <div class="data-val">Mildly anxious. Overwhelmed by vendor decisions. Actively comparing quotes. <strong>Desperate for someone who communicates clearly and doesn't make them feel like a transaction.</strong> When they find that, they stop shopping.</div>
+        </div>
+        <div class="data-row">
+          <span class="data-key">How They Find Tom</span>
+          <div class="data-val">Google ("tent rental Austin wedding," "backyard wedding rentals Austin"), The Knot/WeddingWire searches, referrals from other Austin vendors (photographers, caterers), and word of mouth from past clients.</div>
+        </div>
+        <div class="data-row">
+          <span class="data-key">What They Search</span>
+          <div class="data-val">"tent rental Austin wedding" · "backyard wedding tent Austin" · "outdoor wedding rental packages Austin Texas" · "micro wedding rentals Austin" · "affordable tent rental Austin"</div>
+        </div>
+
+        <p style="margin-top:16px;">The wedding client is the highest-value segment per transaction and the highest-value referral source. Every wedding client who has a five-star experience knows 10–20 people who will get married in the next five years. <strong>Tom's reviews — where his name is mentioned personally in every one — are the conversion asset for this segment.</strong></p>
+
+        <div class="quote-block">
+          <div class="quote-text">"Tom, the owner, was simply fantastic. From the moment he arrived, he was professional, courteous, and made sure every detail was taken care of. Tom went above and beyond."</div>
+          <div class="quote-context">Actual client review — what this segment needs to see to convert</div>
+        </div>
+
+        <p>The wedding client's primary objection is <strong>risk</strong> — not price. They've heard horror stories about vendors canceling, equipment arriving damaged, or companies being unreachable week-of. Tom's direct-contact model eliminates the structural reason those failures happen.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEGMENT 2 PERSONAL -->
+  <div class="section">
+    <span class="section-label">Segment 02</span>
+    <div class="section-title">The Personal <em>Event Client</em></div>
+    <div class="section-intro">Annual repeaters. Highest referral density. The segment most likely to rebook without prompting — if they're reminded.</div>
+
+    <div class="segment">
+      <div class="segment-header">
+        <span class="segment-num">Primary Avatar</span>
+        <div class="segment-name">The <em>Backyard Host</em></div>
+        <span class="segment-trigger">Trigger: Birthday, quinceañera, graduation, family reunion, holiday gathering, backyard soirée</span>
+      </div>
+      <div class="segment-body">
+
+        <div class="data-row">
+          <span class="data-key">Who They Are</span>
+          <div class="data-val">Adults 28–55 hosting personal milestone events at home or in rented outdoor spaces. Families, friend groups, community organizations. <strong>Austin's outdoor culture makes this a year-round segment</strong> — backyard entertaining is a primary social mode in Central Texas.</div>
+        </div>
+        <div class="data-row">
+          <span class="data-key">Event Types</span>
+          <div class="data-val">30th/40th/50th birthdays · Quinceañeras · Graduation parties · Family reunions · Baby showers · Retirement parties · Holiday gatherings · Church and religious celebrations</div>
+        </div>
+        <div class="data-row">
+          <span class="data-key">Budget Mindset</span>
+          <div class="data-val">$400–$1,500. More price-sensitive than weddings but <strong>motivated by the desire to impress their guests</strong>. The 40-person package at $799 is a strong entry point — it transforms a backyard from functional to genuinely impressive.</div>
+        </div>
+        <div class="data-row">
+          <span class="data-key">Emotional State</span>
+          <div class="data-val">Excited but practical. They have a specific date and a guest list. They're solving a problem: their backyard doesn't comfortably seat 50 people. <strong>Tom's transparent pricing and same-day response rate close this segment faster than any other.</strong></div>
+        </div>
+        <div class="data-row">
+          <span class="data-key">Repeat Potential</span>
+          <div class="data-val"><strong>This segment repeats annually.</strong> The client who rented for their daughter's quinceañera this year will have a graduation party in two years. The birthday party client comes back every year if they're reminded. The email anniversary sequence was built specifically for this segment.</div>
+        </div>
+        <div class="data-row">
+          <span class="data-key">Referral Pattern</span>
+          <div class="data-val">Deeply embedded in social networks. Every event they host with Greenbelt equipment is seen by 30–80 people who may host their own events. <strong>Instagram and social media sharing of event setups drives significant organic discovery</strong> — especially in Austin's community-oriented neighborhoods.</div>
+        </div>
+
+        <div class="quote-block">
+          <div class="quote-text">"Great customer service from owner, Tom. Also fantastic price! Without Green Belt, we could not have afforded chairs for our event."</div>
+          <div class="quote-context">The Therapy Sisters — actual client review · pricing transparency as the conversion trigger</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SEGMENT 3 CORPORATE -->
+  <div class="section">
+    <span class="section-label">Segment 03</span>
+    <div class="section-title">The Corporate <em>Client</em></div>
+    <div class="section-intro">Higher AOV. Quarterly repeat potential. Books on calendar cycles — not emotion. The segment that rewards consistency over warmth.</div>
+
+    <div class="segment">
+      <div class="segment-header">
+        <span class="segment-num">Primary Avatar</span>
+        <div class="segment-name">The <em>Austin Event Coordinator</em></div>
+        <span class="segment-trigger">Trigger: Company event, holiday party, team gathering, client entertainment, SXSW or ACL activation</span>
+      </div>
+      <div class="segment-body">
+
+        <div class="data-row">
+          <span class="data-key">Who They Are</span>
+          <div class="data-val">HR managers, office managers, marketing coordinators, and executive assistants at Austin-area companies. They are <strong>solving a logistics problem, not an emotional one</strong>. They need reliable, professional equipment, on-time delivery, and a vendor who won't create problems for them in front of their leadership.</div>
+        </div>
+        <div class="data-row">
+          <span class="data-key">Event Types</span>
+          <div class="data-val">Company holiday parties · Team appreciation events · Client entertainment · Product launches · Q1/Q2 kickoffs · SXSW and ACL activations · Conference after-parties · Outdoor team lunches</div>
+        </div>
+        <div class="data-row">
+          <span class="data-key">Budget Mindset</span>
+          <div class="data-val">$800–$3,000+ per event. <strong>Budget is less of a constraint — reliability is everything.</strong> A corporate coordinator who finds a vendor they trust will use them repeatedly and refer them to peers. One corporate client can become 4–6 annual bookings across the year.</div>
+        </div>
+        <div class="data-row">
+          <span class="data-key">Booking Cycle</span>
+          <div class="data-val">Plans 4–8 weeks ahead. Holiday events book in October. Spring team events book in February-March. They respond well to <strong>early seasonal prompts that give them first access to availability</strong> — the corporate email sequence is built around this exact behavior.</div>
+        </div>
+        <div class="data-row">
+          <span class="data-key">Competitive Context</span>
+          <div class="data-val">Austin's corporate event market is contested. Quest/EventWorks (formerly Marquee) has multi-location scale but documented CX failures post-merger. <strong>Greenbelt's advantage here is communication reliability — the same quality that wins personal clients applies just as powerfully in corporate, where the cost of a vendor failure is professional embarrassment.</strong></div>
+        </div>
+        <div class="data-row">
+          <span class="data-key">How They Find Tom</span>
+          <div class="data-val">Google, referrals from other Austin event vendors, venue recommendations. The PartySlate and WeddingWire profiles are relevant for corporate discovery. LinkedIn outreach during Q4 can capture holiday party season directly.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT CONVERTS -->
+  <div class="section">
+    <span class="section-label">Conversion</span>
+    <div class="section-title">What Actually <em>Moves Them</em></div>
+    <div class="section-intro">Across all three segments, these are the specific triggers that turn interest into a booking.</div>
+
+    <div class="convert-item">
+      <span class="convert-label">01 — Transparent Pricing</span>
+      <div class="convert-text">Publishing real package prices on the website is a conversion advantage, not a liability. <strong>The competitor who hides pricing loses inquiries to the one who shows them.</strong> Greenbelt's $799/$1,199/$1,349 pricing structure is visible — that alone filters out price-shoppers and converts serious buyers faster.</div>
+    </div>
+    <div class="convert-item">
+      <span class="convert-label">02 — Owner Direct Contact Promise</span>
+      <div class="convert-text">The line "you will be in contact with the owner during your booking process" is the single most powerful conversion statement on the Greenbelt website. <strong>In a category plagued by poor communication and wrong deliveries, this is a category-level promise that competitors structurally cannot make.</strong></div>
+    </div>
+    <div class="convert-item">
+      <span class="convert-label">03 — Same-Day Response</span>
+      <div class="convert-text">The event rental customer is comparison shopping. The first company to respond with a real quote wins the majority of bookings. Tom's same-day response rate is a competitive moat — one that disappears the moment a missed call or slow reply gives the competitor a window.</div>
+    </div>
+    <div class="convert-item">
+      <span class="convert-label">04 — Review Velocity on the Right Platforms</span>
+      <div class="convert-text">Greenbelt has a perfect 5-star rating with minimal review volume. More reviews on Google, The Knot, WeddingWire, and PartySlate directly increase organic discovery and reduce conversion friction. <strong>Social proof is a conversion tool, not just a vanity metric.</strong></div>
+    </div>
+    <div class="convert-item">
+      <span class="convert-label">05 — Veteran / Healthcare / Teacher Discount</span>
+      <div class="convert-text">This is not a promotional tactic — it is a values signal. It tells the customer who Tom is before they've spoken to him. <strong>For clients from these communities, it is an immediate trust accelerant.</strong> It should be mentioned in every reactivation email and the contact page.</div>
+    </div>
+  </div>
+
+  <!-- OBJECTIONS -->
+  <div class="section">
+    <span class="section-label">Objections</span>
+    <div class="section-title">What They Say — <em>What They Mean</em></div>
+    <div class="section-intro">Don't argue with the objection. Speak to what's underneath it.</div>
+
+    <div class="objection">
+      <span class="obj-says">They say</span>
+      <div class="obj-quote">"I'm still getting quotes from a few places."</div>
+      <span class="obj-means">What they mean</span>
+      <div class="obj-answer">They haven't found a reason to stop shopping. The answer is not lower pricing — it is faster communication, clearer specificity, and making them feel heard before a competitor does. Respond same day with a real quote and a personal note.</div>
+    </div>
+
+    <div class="objection">
+      <span class="obj-says">They say</span>
+      <div class="obj-quote">"I'm not sure if our budget fits."</div>
+      <span class="obj-means">What they mean</span>
+      <div class="obj-answer">They haven't seen transparent pricing yet, or they haven't asked what's flexible. Tom's actual packages start at $799. That's the answer to this objection — and it should be offered proactively, not extracted through negotiation.</div>
+    </div>
+
+    <div class="objection">
+      <span class="obj-says">They say</span>
+      <div class="obj-quote">"We had a bad experience with a rental company before."</div>
+      <span class="obj-means">What they mean</span>
+      <div class="obj-answer">They were burned by exactly the type of company Greenbelt is positioned against: a chain, a large operation, an impersonal vendor. The answer is: "You'll deal directly with me, the owner, through the entire process." That is structurally different — and they know it.</div>
+    </div>
+
+    <div class="objection">
+      <span class="obj-says">They say</span>
+      <div class="obj-quote">"We're not ready to book yet."</div>
+      <span class="obj-means">What they mean</span>
+      <div class="obj-answer">The timing isn't urgent yet. The answer is to offer a date hold with no commitment required — "I can hold availability for you with just a conversation, no deposit needed until you're ready to confirm." That closes the objection without pressure.</div>
+    </div>
+
+  </div>
+
+  <hr class="divider">
+
+  <div class="section" style="margin-bottom:0;">
+    <p style="font-size:14px;text-align:center;color:var(--text-muted);">Use this document alongside the Brand Tone & Copy Framework. The ICP tells you who you're talking to. The tone framework tells you how to talk to them.</p>
+  </div>
+
+</div>
+
+<div class="site-footer">
+  <div class="footer-brand">Greenbelt Event Rentals</div>
+  <div class="footer-meta">JRZ Consulting Solutions · April 2026<br>Confidential · Internal Use Only</div>
+</div>
+</body>
+</html>
