@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greenbelt Event Rentals — Growth Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0d1a12; --bg-card:#111e16; --bg-raised:#172a1e;
+  --green-accent:#4a9462; --green-bright:#5eb87a; --sage:#8ab89a;
+  --bark:#c49a6c; --white:#ffffff;
+  --text-primary:#e8f0eb; --text-secondary:#7fa88a; --text-muted:#4a6a54;
+  --border:rgba(74,148,98,0.15); --border-bright:rgba(94,184,122,0.3);
+  --crimson-dim:rgba(180,60,60,0.12); --crimson-border:rgba(180,80,80,0.3);
+  --gold-dim:rgba(196,154,108,0.12); --gold-border:rgba(196,154,108,0.3);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{overflow-x:hidden;scroll-behavior:smooth;}
+body{background:var(--bg);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;color:var(--text-primary);width:100%;overflow-x:hidden;}
+
+.top-bar{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:10px;}
+.top-brand{font-family:'DM Serif Display',serif;font-size:14px;color:var(--green-bright);}
+.top-tag{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);}
+.back-link{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-secondary);text-decoration:none;display:flex;align-items:center;gap:5px;}
+.back-link:hover{color:var(--green-bright);}
+
+.hero{padding:64px 24px 48px;max-width:620px;margin:0 auto;text-align:center;}
+.hero-eyebrow{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--green-accent);display:block;margin-bottom:20px;}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(28px,6vw,46px);line-height:1.15;color:var(--white);margin-bottom:16px;}
+.hero h1 em{font-style:italic;color:var(--green-bright);}
+.hero-sub{font-size:16px;color:var(--text-secondary);font-weight:300;line-height:1.6;}
+.hero-rule{width:36px;height:2px;background:var(--green-accent);margin:28px auto 0;}
+
+.content{max-width:640px;margin:0 auto;padding:0 24px 80px;}
+.section{margin-bottom:56px;}
+.section-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-accent);display:block;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border);}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(20px,4vw,28px);color:var(--white);line-height:1.2;margin-bottom:8px;}
+.section-title em{font-style:italic;color:var(--green-bright);}
+.section-intro{font-size:15px;color:var(--text-secondary);margin-bottom:24px;font-weight:300;line-height:1.65;}
+p{font-size:15px;color:var(--text-secondary);margin-bottom:12px;line-height:1.7;}
+p strong{color:var(--text-primary);font-weight:600;}
+p:last-child{margin-bottom:0;}
+
+/* STAT ROW */
+.stat-row{display:flex;flex-direction:column;gap:2px;margin:20px 0;}
+.stat-item{background:var(--bg-card);border:1px solid var(--border);padding:20px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.stat-label{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-muted);}
+.stat-val{font-family:'DM Serif Display',serif;font-size:28px;color:var(--white);}
+.stat-val.green{color:var(--green-bright);}
+.stat-desc{font-size:12px;color:var(--text-muted);margin-top:2px;}
+
+/* LEVER CARDS */
+.lever{background:var(--bg-card);border:1px solid var(--border);padding:20px 22px;margin-bottom:2px;}
+.lever-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px;}
+.lever-name{font-family:'DM Serif Display',serif;font-size:17px;color:var(--white);flex:1;}
+.lever-amount{font-family:'DM Serif Display',serif;font-size:18px;color:var(--green-bright);flex-shrink:0;}
+.lever-mechanism{font-size:14px;color:var(--text-secondary);line-height:1.6;margin-bottom:8px;}
+.lever-assumption{font-size:12px;color:var(--text-muted);font-style:italic;}
+.lever.critical{border-left:3px solid #c47a4a;}
+.lever.strong{border-left:3px solid var(--green-bright);}
+.lever.medium{border-left:3px solid var(--green-accent);}
+
+/* GAP CARDS */
+.gap{background:var(--bg-card);padding:18px 22px;margin-bottom:2px;border-left:3px solid var(--green-accent);}
+.gap.urgent{border-left-color:#c47a4a;}
+.gap.medium{border-left-color:var(--green-accent);}
+.gap.opportunity{border-left-color:var(--green-bright);}
+.gap-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:10px;}
+.gap-name{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-primary);font-weight:600;}
+.gap-tag{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;padding:2px 8px;border:1px solid;flex-shrink:0;}
+.gap-tag.urgent{color:#c47a4a;border-color:#c47a4a;}
+.gap-tag.medium{color:var(--green-accent);border-color:var(--green-accent);}
+.gap-tag.opportunity{color:var(--green-bright);border-color:var(--green-bright);}
+.gap p{font-size:14.5px;margin-bottom:0;color:var(--text-secondary);}
+.gap p strong{color:var(--text-primary);}
+
+/* PHASE STEPS */
+.phase{display:flex;gap:0;margin-bottom:2px;}
+.phase-letter{background:var(--bg-raised);min-width:44px;width:44px;display:flex;align-items:flex-start;justify-content:center;padding-top:18px;flex-shrink:0;}
+.phase-letter span{font-family:'DM Serif Display',serif;font-size:16px;color:var(--green-bright);}
+.phase-body{background:var(--bg-card);padding:16px 20px;border-left:2px solid var(--border);flex:1;}
+.phase-body.active{border-left-color:var(--green-bright);}
+.phase-title{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-primary);font-weight:600;margin-bottom:4px;}
+.phase-tag{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--green-accent);display:block;margin-bottom:8px;}
+.phase-body p{font-size:14px;margin-bottom:8px;}
+.phase-items{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
+.phase-pill{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;background:var(--bg-raised);border:1px solid var(--border);color:var(--green-accent);}
+
+/* INVESTMENT ROWS */
+.invest-row{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--border);align-items:flex-start;}
+.invest-row:last-child{border-bottom:none;}
+.invest-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--green-accent);min-width:80px;flex-shrink:0;padding-top:2px;}
+.invest-val{font-size:14.5px;color:var(--text-secondary);line-height:1.6;}
+.invest-val strong{color:var(--text-primary);}
+
+.callout{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--green-accent);padding:20px 22px;margin:20px 0;}
+.callout-label{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-accent);display:block;margin-bottom:8px;}
+.callout p{font-size:14.5px;margin-bottom:0;}
+
+.divider{border:none;border-top:1px solid var(--border);margin:40px 0;}
+.site-footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;}
+.footer-brand{font-family:'DM Serif Display',serif;font-size:14px;color:var(--green-bright);margin-bottom:6px;}
+.footer-meta{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);line-height:1.8;}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-brand">Greenbelt Event Rentals</div>
+  <div class="top-tag">Marketing Vault · 05</div>
+  <a href="greenbelt_vault_index.html" class="back-link">← Vault</a>
+</div>
+
+<div class="hero">
+  <span class="hero-eyebrow">05 — Strategy</span>
+  <h1>Growth Roadmap<br><em>$500K → $1M</em></h1>
+  <div class="hero-sub">The 90-day Build → Optimize → Activate framework. Every lever, the math behind each one, and the sequence that doubles revenue without adding inventory or ad spend.</div>
+  <div class="hero-rule"></div>
+</div>
+
+<div class="content">
+
+  <!-- DIAGNOSIS -->
+  <div class="section">
+    <span class="section-label">The Diagnosis</span>
+    <div class="section-title">The Gap Is <em>Not What You Think</em></div>
+    <div class="section-intro">The path from $500K to $1M is not a marketing budget problem. It is an architecture problem.</div>
+
+    <p>Greenbelt Event Rentals is a <strong>fundamentally sound business</strong>. Five-star reviews. Transparent pricing. Owner-direct contact. A genuine service reputation in a market where the dominant competitor just went through a disruptive acquisition and is hemorrhaging customer service complaints.</p>
+
+    <p>The business currently generates $500K per year through Google Ads, organic search, and word of mouth. All three channels work. The problem is structural: <strong>there is no compounding mechanism beneath them.</strong> Every dollar of revenue is hunted individually. A customer books, receives great service, and then disappears from the funnel forever — with no system to bring them back, no system to ask for a referral, and no system to capture leads that arrived after hours.</p>
+
+    <div class="stat-row">
+      <div class="stat-item">
+        <div>
+          <div class="stat-label">Current Annual Gross</div>
+          <div class="stat-desc">Google Ads + Organic + Referral</div>
+        </div>
+        <div class="stat-val">$500K</div>
+      </div>
+      <div class="stat-item">
+        <div>
+          <div class="stat-label">Target Annual Gross</div>
+          <div class="stat-desc">With full architecture active</div>
+        </div>
+        <div class="stat-val green">$1.03M</div>
+      </div>
+      <div class="stat-item">
+        <div>
+          <div class="stat-label">Revenue to Unlock</div>
+          <div class="stat-desc">From existing assets — zero new inventory</div>
+        </div>
+        <div class="stat-val green">$530K</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="callout-label">The Core Principle</span>
+      <p>The following projection assumes <strong>no change to service quality, no new inventory, and no increase in Google Ads spend</strong>. Every revenue line is built from activating assets that already exist — the 1,000-contact list, the repeat customer base, the referral network, and the after-hours inquiries currently going to voicemail.</p>
+    </div>
+  </div>
+
+  <!-- FIVE GAPS -->
+  <div class="section">
+    <span class="section-label">Revenue Leakage</span>
+    <div class="section-title">Where Money Is <em>Currently Escaping</em></div>
+    <div class="section-intro">Five specific gaps. Each one is an untapped asset, not a weakness.</div>
+
+    <div class="gap urgent">
+      <div class="gap-top">
+        <span class="gap-name">Gap 01 — The Dormant List</span>
+        <span class="gap-tag urgent">Highest Leverage</span>
+      </div>
+      <p>A <strong>1,000-contact email list</strong> of people who already raised their hand is sitting untouched. Industry benchmarks recover 10–25% of dormant contacts through reactivation campaigns. At 10% reactivation at $600 average order value: <strong>$60,000 in 90 days.</strong> Email ROI averages $36–$42 per dollar spent. This is not a new customer acquisition problem — it is a dormant asset activation problem.</p>
+    </div>
+
+    <div class="gap urgent">
+      <div class="gap-top">
+        <span class="gap-name">Gap 02 — No Repeat Revenue System</span>
+        <span class="gap-tag urgent">Critical</span>
+      </div>
+      <p>Event rentals are cyclical. Corporate clients book quarterly. Families host annual events. There is currently <strong>no structured follow-up system</strong> converting one-time customers into repeat clients. 20% of 500 annual clients rebooking at $600 average = <strong>$60,000/year at near-zero acquisition cost.</strong></p>
+    </div>
+
+    <div class="gap medium">
+      <div class="gap-top">
+        <span class="gap-name">Gap 03 — No Vendor Referral Network</span>
+        <span class="gap-tag medium">Medium Priority</span>
+      </div>
+      <p>Austin's event industry runs entirely on vendor referrals. Photographers, caterers, florists, and planners are constantly asked "who do you recommend for tent rentals?" <strong>Greenbelt has no formal program in place.</strong> A 5–10% referral commission with 15–20 Austin vendor partners = 100 additional bookings per year.</p>
+    </div>
+
+    <div class="gap medium">
+      <div class="gap-top">
+        <span class="gap-name">Gap 04 — No Off-Season Strategy</span>
+        <span class="gap-tag medium">Medium Priority</span>
+      </div>
+      <p>Austin's event calendar clusters in spring and fall. <strong>Summer and winter inventory sits underutilized.</strong> Corporate holiday events (Nov–Dec) and Q1 kickoffs (Jan–Feb) are underserved by Greenbelt's current marketing. Targeted corporate outreach for these windows adds $45,000+ annually.</p>
+    </div>
+
+    <div class="gap opportunity">
+      <div class="gap-top">
+        <span class="gap-name">Gap 05 — Review Velocity</span>
+        <span class="gap-tag opportunity">Growth Lever</span>
+      </div>
+      <p>Perfect 5-star rating with minimal review volume. <strong>Competitors dominate Google, The Knot, and WeddingWire with review count</strong> — the primary organic discovery mechanism for this category. An automated post-event review request sequence costs nothing in media and directly reduces Google Ads dependency over 6–12 months.</p>
+    </div>
+  </div>
+
+  <!-- REVENUE TABLE -->
+  <div class="section">
+    <span class="section-label">The Math</span>
+    <div class="section-title">Revenue Architecture — <em>Line by Line</em></div>
+    <div class="section-intro">Conservative assumptions. Transparent math. Every line is auditable against published industry benchmarks.</div>
+
+    <div class="lever strong">
+      <div class="lever-top">
+        <div class="lever-name">Existing Business</div>
+        <div class="lever-amount" style="color:var(--text-muted);">$500,000</div>
+      </div>
+      <div class="lever-mechanism">Google Ads, organic SEO, inbound referrals, existing repeat customers. No change to current model.</div>
+    </div>
+
+    <div class="lever critical">
+      <div class="lever-top">
+        <div class="lever-name">List Reactivation Campaign</div>
+        <div class="lever-amount">+ $90,000</div>
+      </div>
+      <div class="lever-mechanism">3-email reactivation sequence to 1,000 dormant inquiries. Seasonal offers, availability reminder, returning-customer positioning. Run 2× per year.</div>
+      <div class="lever-assumption">15% reactivation rate × $600 avg order = 150 bookings/year · Industry benchmark: 10–25% recovery on warm lists</div>
+    </div>
+
+    <div class="lever critical">
+      <div class="lever-top">
+        <div class="lever-name">Repeat Customer Automation</div>
+        <div class="lever-amount">+ $60,000</div>
+      </div>
+      <div class="lever-mechanism">Post-event follow-up for all booked clients. Thank-you → 3-month check-in → event anniversary prompt → seasonal offer. Automated. Runs without Tom's involvement once built.</div>
+      <div class="lever-assumption">20% of 500 annual clients rebook × $600 avg = 100 repeat bookings/year</div>
+    </div>
+
+    <div class="lever medium">
+      <div class="lever-top">
+        <div class="lever-name">Vendor Referral Network</div>
+        <div class="lever-amount">+ $60,000</div>
+      </div>
+      <div class="lever-mechanism">Formal referral agreements with 15–20 Austin vendors: photographers, caterers, planners, florists. 5–10% referral commission or reciprocal arrangement.</div>
+      <div class="lever-assumption">20 vendors × 5 referrals/yr × $600 avg = 100 new bookings/year</div>
+    </div>
+
+    <div class="lever medium">
+      <div class="lever-top">
+        <div class="lever-name">Off-Season Corporate Campaign</div>
+        <div class="lever-amount">+ $45,000</div>
+      </div>
+      <div class="lever-mechanism">Targeted outreach to Austin corporate accounts (HR, event coordinators) for holiday parties, team events, Q1 kickoffs. Email campaigns + LinkedIn outreach.</div>
+      <div class="lever-assumption">30 new corporate accounts × $1,500 avg order (conservative corporate AOV)</div>
+    </div>
+
+    <div class="lever medium">
+      <div class="lever-top">
+        <div class="lever-name">Review Velocity / Organic Growth</div>
+        <div class="lever-amount">+ $18,000</div>
+      </div>
+      <div class="lever-mechanism">Automated review request post-delivery → Google + Knot + WeddingWire → improved organic ranking → reduced Google Ads cost + new inbound leads.</div>
+      <div class="lever-assumption">25% increase in organic leads over 12 months. 30 net new bookings × $600</div>
+    </div>
+
+    <div class="lever medium">
+      <div class="lever-top">
+        <div class="lever-name">Upsell Automation</div>
+        <div class="lever-amount">+ $15,000</div>
+      </div>
+      <div class="lever-mechanism">Post-booking email sequence prompting linen upgrades, restroom trailers, dance floors, and finishing touches for clients who booked base packages.</div>
+      <div class="lever-assumption">15% upsell rate on 500 annual bookings × $200 avg upsell = 75 upgrades</div>
+    </div>
+
+    <div class="lever critical">
+      <div class="lever-top">
+        <div class="lever-name">AI Intake Agent</div>
+        <div class="lever-amount">+ $30,000</div>
+      </div>
+      <div class="lever-mechanism">24/7 AI call and inquiry agent answers after-hours calls, qualifies leads, collects event details, and schedules follow-up. Zero missed inquiries. Tom closes — the agent captures.</div>
+      <div class="lever-assumption">15–20% of inquiries currently lost after hours. 50 recovered bookings/yr × $600</div>
+    </div>
+
+    <div class="lever strong" style="border:2px solid var(--green-bright);">
+      <div class="lever-top">
+        <div class="lever-name" style="color:var(--green-bright);">Total — Full Architecture Active</div>
+        <div class="lever-amount" style="font-size:22px;">$818K–$1.03M</div>
+      </div>
+      <div class="lever-mechanism" style="color:var(--text-primary);">Conservative end: $818,000 · Moderate performance: $1,030,000 · Revenue range reflects low-end and mid-range conversion rates across all channels.</div>
+    </div>
+  </div>
+
+  <!-- ROADMAP -->
+  <div class="section">
+    <span class="section-label">Execution</span>
+    <div class="section-title">Build → Optimize → <em>Activate</em></div>
+    <div class="section-intro">90 days. Three phases. Sequenced for maximum ROI with minimum disruption to operations.</div>
+
+    <div class="phase">
+      <div class="phase-letter"><span>B</span></div>
+      <div class="phase-body active">
+        <div class="phase-title">Phase Build · Days 1–30</div>
+        <div class="phase-tag">Foundation Infrastructure</div>
+        <p>Stand up the systems that don't exist yet. The goal of this phase is not revenue — it is infrastructure. Nothing in Phase O or A functions without this foundation.</p>
+        <div class="phase-items">
+          <span class="phase-pill">Email Platform (Mailchimp Standard)</span>
+          <span class="phase-pill">1,000-Contact List Import</span>
+          <span class="phase-pill">Audience Segmentation</span>
+          <span class="phase-pill">Review Request Automation</span>
+          <span class="phase-pill">Google Business Profile</span>
+          <span class="phase-pill">Knot / WeddingWire / PartySlate</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-letter"><span>O</span></div>
+      <div class="phase-body">
+        <div class="phase-title">Phase Optimize · Days 31–60</div>
+        <div class="phase-tag">Revenue Sequences Active</div>
+        <p>Deploy the sequences that turn existing assets into recurring revenue. The reactivation campaign alone should return $30,000–$60,000 within 30 days of deployment.</p>
+        <div class="phase-items">
+          <span class="phase-pill">Reactivation Campaign Live</span>
+          <span class="phase-pill">Thank-You + Upsell Sequence</span>
+          <span class="phase-pill">Repeat Customer Sequence</span>
+          <span class="phase-pill">Seasonal Campaign Calendar</span>
+          <span class="phase-pill">20 Vendor Outreach Partners</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-letter"><span>A</span></div>
+      <div class="phase-body">
+        <div class="phase-title">Phase Activate · Days 61–90</div>
+        <div class="phase-tag">Growth Infrastructure</div>
+        <p>Layer on the systems that compound over time. The vendor network, the AI intake agent, and the corporate program drive the second and third $100K increments.</p>
+        <div class="phase-items">
+          <span class="phase-pill">Vendor Referral Program Launch</span>
+          <span class="phase-pill">AI Call Agent Deployment</span>
+          <span class="phase-pill">Corporate Q4 Campaign</span>
+          <span class="phase-pill">Upsell Automation Live</span>
+          <span class="phase-pill">Monthly KPI Dashboard</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top:20px;">By Day 90, every revenue lever above is operational. The first full 12-month cycle with all systems active produces the $818K–$1.03M projection range. The difference between the floor and the ceiling is execution consistency.</p>
+  </div>
+
+  <!-- INVESTMENT -->
+  <div class="section">
+    <span class="section-label">Requirements</span>
+    <div class="section-title">What This <em>Actually Requires</em></div>
+    <div class="section-intro">Three honest inputs. No surprises.</div>
+
+    <div class="invest-row">
+      <span class="invest-label">Time</span>
+      <div class="invest-val">20–30 hours of Tom's input during the 30-day Build phase. Primarily account setup, data export, and email approval. Once live: <strong>4–6 hours/month</strong> for email review and booking tracking. The system is built to free Tom's time — not consume it.</div>
+    </div>
+    <div class="invest-row">
+      <span class="invest-label">Budget</span>
+      <div class="invest-val">Mailchimp Standard (~$20/mo) + CRM integration ($50–$150/mo) + AI intake agent ($200–$350/mo) + review automation tool ($50–$100/mo). Total: <strong>$320–$620/month in tools.</strong> Against $40,000–$80,000/month in projected new revenue, this is a sub-2% cost of revenue.</div>
+    </div>
+    <div class="invest-row">
+      <span class="invest-label">Commitment</span>
+      <div class="invest-val">90 days of consistent execution. The single failure mode is partial implementation — the list without the sequences, or the vendor program without the follow-through. <strong>Complete deployment is the only deployment that compounds.</strong></div>
+    </div>
+
+    <div class="callout" style="margin-top:20px;">
+      <span class="callout-label">The Closing Statement</span>
+      <p>The customers exist. The list exists. The reputation exists. The product is excellent. What Greenbelt needs is not more marketing spend — it is the architecture that converts every dollar of current effort into compounding revenue. <strong>The gap from $500K to $1M is a systems gap, not a growth gap. Build the systems.</strong></p>
+    </div>
+  </div>
+
+</div>
+
+<div class="site-footer">
+  <div class="footer-brand">Greenbelt Event Rentals</div>
+  <div class="footer-meta">JRZ Consulting Solutions · April 2026<br>Confidential · Internal Use Only</div>
+</div>
+</body>
+</html>
