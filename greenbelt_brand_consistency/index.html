@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greenbelt Event Rentals — Brand Consistency</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:          #0d1a12;
+  --bg-card:     #121f17;
+  --bg-raised:   #172a1e;
+  --green-deep:  #1e3a2f;
+  --green-mid:   #2d5a3d;
+  --green-accent:#4a9462;
+  --green-bright:#5eb87a;
+  --sage:        #8ab89a;
+  --cream:       #f2ede4;
+  --linen:       #e8e0d0;
+  --bark:        #c49a6c;
+  --white:       #ffffff;
+  --text-primary:#e8f0eb;
+  --text-secondary:#7fa88a;
+  --text-muted:  #4a6a54;
+  --border:      rgba(74,148,98,0.18);
+  --border-bright:rgba(94,184,122,0.35);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { overflow-x:hidden; scroll-behavior:smooth; }
+body {
+  background:var(--bg);
+  font-family:'DM Sans', sans-serif;
+  font-size:16px;
+  line-height:1.7;
+  color:var(--text-primary);
+  width:100%;
+  overflow-x:hidden;
+}
+
+/* NAV */
+.top-bar {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 24px;
+  border-bottom:1px solid var(--border);
+}
+.top-brand {
+  font-family:'DM Serif Display', serif;
+  font-size:14px;
+  color:var(--green-bright);
+  letter-spacing:0.02em;
+}
+.top-tag {
+  font-size:10px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+}
+.back-link {
+  font-size:11px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--text-secondary);
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  transition:color 0.2s;
+}
+.back-link:hover { color:var(--green-bright); }
+
+/* HERO */
+.hero {
+  padding:64px 24px 48px;
+  max-width:620px;
+  margin:0 auto;
+  text-align:center;
+}
+.hero-eyebrow {
+  font-size:10px;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:var(--green-accent);
+  display:block;
+  margin-bottom:20px;
+}
+.hero h1 {
+  font-family:'DM Serif Display', serif;
+  font-size:clamp(28px,6vw,46px);
+  line-height:1.15;
+  color:var(--white);
+  margin-bottom:16px;
+}
+.hero h1 em {
+  font-style:italic;
+  color:var(--green-bright);
+}
+.hero-sub {
+  font-size:16px;
+  color:var(--text-secondary);
+  font-weight:300;
+  line-height:1.6;
+}
+.hero-rule {
+  width:36px;
+  height:2px;
+  background:var(--green-accent);
+  margin:28px auto 0;
+}
+
+/* CONTENT */
+.content {
+  max-width:640px;
+  margin:0 auto;
+  padding:0 24px 80px;
+}
+
+/* SECTION */
+.section { margin-bottom:56px; }
+
+.section-label {
+  font-size:10px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--green-accent);
+  display:block;
+  margin-bottom:16px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--border);
+}
+.section-title {
+  font-family:'DM Serif Display', serif;
+  font-size:clamp(20px,4vw,28px);
+  color:var(--white);
+  line-height:1.2;
+  margin-bottom:8px;
+}
+.section-title em { font-style:italic; color:var(--green-bright); }
+
+.section-intro {
+  font-size:15px;
+  color:var(--text-secondary);
+  margin-bottom:24px;
+  font-weight:300;
+  line-height:1.65;
+}
+
+p {
+  font-size:15px;
+  color:var(--text-secondary);
+  margin-bottom:12px;
+  line-height:1.7;
+}
+p strong { color:var(--text-primary); font-weight:600; }
+p:last-child { margin-bottom:0; }
+
+/* CALLOUT */
+.callout {
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-left:3px solid var(--green-accent);
+  padding:20px 22px;
+  margin:20px 0;
+}
+.callout-label {
+  font-size:9px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--green-accent);
+  display:block;
+  margin-bottom:8px;
+}
+.callout p { font-size:14.5px; margin-bottom:0; }
+
+/* WARNING */
+.warning {
+  background:rgba(196,154,108,0.08);
+  border:1px solid rgba(196,154,108,0.25);
+  border-left:3px solid var(--bark);
+  padding:18px 22px;
+  margin:20px 0;
+}
+.warning-label {
+  font-size:9px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--bark);
+  display:block;
+  margin-bottom:8px;
+}
+.warning p { font-size:14.5px; margin-bottom:0; }
+
+/* COLOR SWATCHES */
+.swatch-stack { margin:20px 0; }
+.swatch-item {
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:14px 16px;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  margin-bottom:2px;
+}
+.chip {
+  width:40px;
+  height:40px;
+  border-radius:3px;
+  flex-shrink:0;
+  border:1px solid rgba(255,255,255,0.08);
+}
+.chip-info { flex:1; }
+.chip-name {
+  font-size:13px;
+  font-weight:600;
+  color:var(--white);
+  margin-bottom:2px;
+  display:block;
+}
+.chip-hex {
+  font-family:monospace;
+  font-size:12px;
+  color:var(--text-muted);
+  margin-bottom:2px;
+  display:block;
+}
+.chip-use {
+  font-size:12px;
+  color:var(--text-secondary);
+  display:block;
+}
+.chip-tag {
+  font-size:9px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  padding:3px 8px;
+  border:1px solid var(--border);
+  color:var(--text-muted);
+  flex-shrink:0;
+  align-self:center;
+}
+
+/* TYPE BLOCK */
+.type-block {
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  padding:24px 22px;
+  margin-bottom:2px;
+}
+.type-label {
+  font-size:9px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  display:block;
+  margin-bottom:14px;
+}
+.type-display {
+  font-family:'DM Serif Display', serif;
+  font-size:clamp(28px,5vw,38px);
+  color:var(--white);
+  line-height:1.15;
+  margin-bottom:6px;
+}
+.type-display em { font-style:italic; color:var(--green-bright); }
+.type-h2 {
+  font-family:'DM Serif Display', serif;
+  font-size:22px;
+  color:var(--text-primary);
+  margin-bottom:6px;
+}
+.type-body {
+  font-size:15px;
+  color:var(--text-secondary);
+  line-height:1.7;
+  margin-bottom:6px;
+}
+.type-cap {
+  font-size:10px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--green-accent);
+}
+.type-meta {
+  font-size:12px;
+  color:var(--text-muted);
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid var(--border);
+  font-family:monospace;
+}
+
+/* DO / DON'T */
+.do-dont { margin:20px 0; }
+.do-block, .dont-block {
+  padding:18px 20px;
+  margin-bottom:2px;
+}
+.do-block {
+  background:rgba(74,148,98,0.08);
+  border-left:3px solid var(--green-accent);
+}
+.dont-block {
+  background:rgba(139,26,26,0.07);
+  border-left:3px solid #8b4a4a;
+}
+.do-label {
+  font-size:9px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--green-accent);
+  display:block;
+  margin-bottom:8px;
+}
+.dont-label {
+  font-size:9px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:#c47a7a;
+  display:block;
+  margin-bottom:8px;
+}
+.do-block p, .dont-block p {
+  font-size:14.5px;
+  margin-bottom:6px;
+  font-style:italic;
+}
+.do-block p:last-child,
+.dont-block p:last-child { margin-bottom:0; }
+
+/* RULE LIST */
+.rule-list { margin:16px 0; }
+.rule-item {
+  display:flex;
+  gap:14px;
+  padding:14px 16px;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  margin-bottom:2px;
+  align-items:flex-start;
+}
+.rule-num {
+  font-size:10px;
+  letter-spacing:0.1em;
+  color:var(--green-accent);
+  font-weight:600;
+  min-width:24px;
+  padding-top:2px;
+  flex-shrink:0;
+}
+.rule-text {
+  font-size:14.5px;
+  color:var(--text-secondary);
+  line-height:1.6;
+}
+.rule-text strong { color:var(--text-primary); }
+
+/* CHECKLIST */
+.checklist { margin:16px 0; }
+.check-item {
+  display:flex;
+  gap:12px;
+  padding:12px 16px;
+  border-bottom:1px solid var(--border);
+  align-items:flex-start;
+}
+.check-item:last-child { border-bottom:none; }
+.check-icon {
+  color:var(--green-bright);
+  font-size:13px;
+  padding-top:2px;
+  flex-shrink:0;
+}
+.check-text {
+  font-size:14.5px;
+  color:var(--text-secondary);
+  line-height:1.6;
+}
+.check-text strong { color:var(--text-primary); }
+
+/* VOICE PAIR */
+.voice-pair { margin:16px 0; }
+.voice-row {
+  padding:16px 18px;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  margin-bottom:2px;
+}
+.voice-tag {
+  font-size:9px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  margin-bottom:6px;
+  display:block;
+}
+.voice-tag.yes { color:var(--green-accent); }
+.voice-tag.no  { color:#c47a7a; }
+.voice-example {
+  font-size:15px;
+  font-style:italic;
+  line-height:1.6;
+}
+.voice-example.yes { color:var(--text-primary); }
+.voice-example.no  { color:var(--text-muted); text-decoration:line-through; }
+.voice-note {
+  font-size:12px;
+  color:var(--text-muted);
+  margin-top:5px;
+}
+
+/* DIVIDER */
+.divider {
+  border:none;
+  border-top:1px solid var(--border);
+  margin:40px 0;
+}
+
+/* FOOTER */
+.site-footer {
+  border-top:1px solid var(--border);
+  padding:28px 24px;
+  text-align:center;
+}
+.footer-brand {
+  font-family:'DM Serif Display', serif;
+  font-size:14px;
+  color:var(--green-bright);
+  margin-bottom:6px;
+}
+.footer-meta {
+  font-size:10px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  line-height:1.8;
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-brand">Greenbelt Event Rentals</div>
+  <div class="top-tag">Marketing Vault · 01</div>
+  <a href="index.html" class="back-link">← Vault</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-eyebrow">01 — Brand Foundation</span>
+  <h1>Brand <em>Consistency</em><br>Document</h1>
+  <div class="hero-sub">The single source of truth for every output produced in Greenbelt's name. Read this before writing a caption, a subject line, or a quote.</div>
+  <div class="hero-rule"></div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- WHY THIS EXISTS -->
+  <div class="section">
+    <span class="section-label">Purpose</span>
+    <div class="section-title">Why This <em>Document Exists</em></div>
+    <div class="section-intro">Tom's name is the brand. Every output we produce either strengthens that or dilutes it.</div>
+
+    <p>Greenbelt Event Rentals doesn't compete on inventory or price — it competes on <strong>Tom</strong>. His name appears in every single five-star review. His responsiveness, his transparency, his genuine care — those are the product. The marketing job is not to build a brand from scratch. It is to <strong>extend Tom at scale without losing him</strong> in the process.</p>
+
+    <p>This document ensures that every email sequence, every caption, every subject line, every campaign piece sounds like it came from the same person — because it should. When someone reads a Greenbelt email, they should feel like Tom wrote it that morning.</p>
+
+    <div class="callout">
+      <span class="callout-label">The Core Test</span>
+      <p>Before publishing anything, ask one question: <strong>Could Tom have written this himself?</strong> If the answer is no — if it sounds like an agency, a template, or a marketing department — rewrite it.</p>
+    </div>
+  </div>
+
+  <!-- BRAND IDENTITY -->
+  <div class="section">
+    <span class="section-label">Identity</span>
+    <div class="section-title">What Greenbelt <em>Actually Is</em></div>
+    <div class="section-intro">Not what the website says. What it actually is in the market.</div>
+
+    <p>Greenbelt Event Rentals is a <strong>small, owner-operated event rental company based in Austin, Texas</strong>. Full service — tents, tables, chairs, linens, dance floors, arches, restroom trailers. They serve weddings, corporate events, birthday parties, backyard soirées, quinceañeras, and everything in between. Their service radius is 2 hours from Austin.</p>
+
+    <p>The business was founded on the premise that <strong>you should deal with the owner, not a sales rep</strong>. Transparent pricing. No hidden fees. No bait-and-switch. Same quality for a 40-person birthday as for an 80-person wedding. Tom discounts for veterans, healthcare workers, and teachers — not as a promotional tactic, but because that's who he is.</p>
+
+    <div class="rule-list">
+      <div class="rule-item">
+        <span class="rule-num">01</span>
+        <div class="rule-text"><strong>Category:</strong> Event equipment rental — tents, furniture, linens, flooring, specialty items</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">02</span>
+        <div class="rule-text"><strong>Market:</strong> Austin, TX and Central Texas within 2-hour radius</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">03</span>
+        <div class="rule-text"><strong>Position:</strong> Mid-market quality at transparent pricing — personal service that multi-location chains cannot match</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">04</span>
+        <div class="rule-text"><strong>Differentiator:</strong> Tom is the point of contact throughout the entire process — from inquiry to delivery to teardown</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">05</span>
+        <div class="rule-text"><strong>Pricing:</strong> $799 (40 guests) · $1,199 (60 guests) · $1,349 (80 guests) base packages. Delivery starts at $125 Austin.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLOR PALETTE -->
+  <div class="section">
+    <span class="section-label">Visual Identity</span>
+    <div class="section-title">Color <em>Palette</em></div>
+    <div class="section-intro">Every color has a role. Use them consistently across all digital and print outputs.</div>
+
+    <div class="swatch-stack">
+
+      <div class="swatch-item">
+        <div class="chip" style="background:#2d5a3d;"></div>
+        <div class="chip-info">
+          <span class="chip-name">Forest Green</span>
+          <span class="chip-hex">#2d5a3d</span>
+          <span class="chip-use">Primary brand color. Logo, headings, primary buttons.</span>
+        </div>
+        <span class="chip-tag">Primary</span>
+      </div>
+
+      <div class="swatch-item">
+        <div class="chip" style="background:#4a9462;"></div>
+        <div class="chip-info">
+          <span class="chip-name">Canopy Green</span>
+          <span class="chip-hex">#4a9462</span>
+          <span class="chip-use">Accent. Active states, highlights, links.</span>
+        </div>
+        <span class="chip-tag">Accent</span>
+      </div>
+
+      <div class="swatch-item">
+        <div class="chip" style="background:#8ab89a;"></div>
+        <div class="chip-info">
+          <span class="chip-name">Sage</span>
+          <span class="chip-hex">#8ab89a</span>
+          <span class="chip-use">Secondary text, subheadings on dark backgrounds.</span>
+        </div>
+        <span class="chip-tag">Secondary</span>
+      </div>
+
+      <div class="swatch-item">
+        <div class="chip" style="background:#f2ede4; border:1px solid #d9ccb8;"></div>
+        <div class="chip-info">
+          <span class="chip-name">Warm Cream</span>
+          <span class="chip-hex">#f2ede4</span>
+          <span class="chip-use">Primary light background. Email backgrounds. Document pages.</span>
+        </div>
+        <span class="chip-tag">Light BG</span>
+      </div>
+
+      <div class="swatch-item">
+        <div class="chip" style="background:#c49a6c;"></div>
+        <div class="chip-info">
+          <span class="chip-name">Austin Bark</span>
+          <span class="chip-hex">#c49a6c</span>
+          <span class="chip-use">Warm accent. Pull quotes, pricing callouts, seasonal emphasis.</span>
+        </div>
+        <span class="chip-tag">Warm Accent</span>
+      </div>
+
+      <div class="swatch-item">
+        <div class="chip" style="background:#1a2e22;"></div>
+        <div class="chip-info">
+          <span class="chip-name">Deep Ink</span>
+          <span class="chip-hex">#1a2e22</span>
+          <span class="chip-use">Dark backgrounds, vault pages, document headers.</span>
+        </div>
+        <span class="chip-tag">Dark BG</span>
+      </div>
+
+      <div class="swatch-item">
+        <div class="chip" style="background:#2a3d30;"></div>
+        <div class="chip-info">
+          <span class="chip-name">Grove</span>
+          <span class="chip-hex">#2a3d30</span>
+          <span class="chip-use">Body text on light backgrounds. Primary text color.</span>
+        </div>
+        <span class="chip-tag">Body Text</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TYPOGRAPHY -->
+  <div class="section">
+    <span class="section-label">Visual Identity</span>
+    <div class="section-title">Typography <em>System</em></div>
+    <div class="section-intro">Two typefaces. One job each. Do not substitute.</div>
+
+    <div class="type-block">
+      <span class="type-label">Display / Headings — DM Serif Display</span>
+      <div class="type-display">Events built by <em>people</em><br>who show up.</div>
+      <div class="type-meta">font-family: 'DM Serif Display', serif · Use italic for emphasis · H1, H2, pull quotes</div>
+    </div>
+
+    <div class="type-block">
+      <span class="type-label">Body / UI — DM Sans</span>
+      <div class="type-h2">Tents, tables, chairs, and everything in between.</div>
+      <div class="type-body">We're a small, owner-operated business based in Austin. You deal directly with Tom throughout the entire process — from your first inquiry to the day of your event. Transparent pricing. No surprises.</div>
+      <div class="type-cap">Greenbelt Event Rentals · Austin, Texas</div>
+      <div class="type-meta">font-family: 'DM Sans', sans-serif · 300/400/500/600 weights · Body, UI, labels, captions</div>
+    </div>
+
+    <div class="callout" style="margin-top:16px;">
+      <span class="callout-label">Scale Rules</span>
+      <p>Display headlines: 32–52px. Section titles: 22–30px. Body text: 15–17px. Labels / eyebrows: 10–11px, letter-spacing 0.16–0.2em, uppercase. Never use font sizes below 12px in body copy.</p>
+    </div>
+  </div>
+
+  <!-- LOGO USAGE -->
+  <div class="section">
+    <span class="section-label">Visual Identity</span>
+    <div class="section-title">Logo <em>Usage</em></div>
+    <div class="section-intro">The Greenbelt tree mark. Rules for every context.</div>
+
+    <div class="rule-list">
+      <div class="rule-item">
+        <span class="rule-num">✓</span>
+        <div class="rule-text">Use the full logo (tree + wordmark) for document headers, email headers, and cover pages</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">✓</span>
+        <div class="rule-text">The tree mark may be used alone as a favicon, watermark, or small-space identifier</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">✓</span>
+        <div class="rule-text">On dark backgrounds: use the white/cream version of the wordmark with green tree</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">✗</span>
+        <div class="rule-text">Never stretch, recolor, or add effects to the logo mark</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">✗</span>
+        <div class="rule-text">Never place the logo on a busy photographic background without a solid or semi-transparent container</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">✗</span>
+        <div class="rule-text">Never use the logo in isolation without the "Austin, Texas" submark in contexts where location is relevant</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VOICE & TONE -->
+  <div class="section">
+    <span class="section-label">Voice</span>
+    <div class="section-title">Tom's Voice — <em>The Rules</em></div>
+    <div class="section-intro">The voice is Tom. Warm. Direct. Local. Never corporate.</div>
+
+    <p>Tom's reviews use the same words repeatedly: <em>responsive, thoughtful, professional, courteous, went above and beyond, fantastic price.</em> These aren't marketing claims — they are what real clients said about a real person. The voice system is built from that reality.</p>
+
+    <div class="rule-list">
+      <div class="rule-item">
+        <span class="rule-num">01</span>
+        <div class="rule-text"><strong>First person singular.</strong> Emails and social posts sign as "Tom" — not "the Greenbelt team" or "we." The brand is a person, not a department.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">02</span>
+        <div class="rule-text"><strong>Short sentences.</strong> Tom talks in plain language. No run-ons. No jargon. If a sentence needs a comma and two more clauses to make its point, break it into two sentences.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">03</span>
+        <div class="rule-text"><strong>Confidence without pressure.</strong> Tom knows his product is good. He doesn't need to push. Offer availability. State what's available. Let the client decide.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">04</span>
+        <div class="rule-text"><strong>Specificity over superlatives.</strong> "$799 for 40 guests, tent, tables, and chairs" beats "affordable packages for any budget." Real numbers build trust. Vague language erodes it.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">05</span>
+        <div class="rule-text"><strong>Austin local energy.</strong> Relaxed, grounded, warm. Not hyped. Not tech-startup casual. The energy of someone who's been doing this for years and genuinely loves it.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">06</span>
+        <div class="rule-text"><strong>No pressure tactics.</strong> Never: "limited availability," "book now before it's gone," "last chance." Tom holds dates with a conversation. That's the offer. Use it.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">07</span>
+        <div class="rule-text"><strong>Acknowledge the human moment.</strong> Weddings, birthdays, graduations — these matter to people. Write like you know that. Not sentimentally. Just with awareness.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VOICE EXAMPLES -->
+  <div class="section">
+    <span class="section-label">Voice</span>
+    <div class="section-title">In Practice — <em>Yes / No</em></div>
+    <div class="section-intro">How the voice rules apply in actual copy.</div>
+
+    <div class="voice-pair">
+
+      <div class="voice-row">
+        <span class="voice-tag yes">✓ This</span>
+        <div class="voice-example yes">"Hi Sarah, just wanted to check in — your event is coming up in about two months. If you're planning something again this year, I'd love to help. Same setup as last time, or something different — just reach out."</div>
+        <div class="voice-note">Personal. Direct. Low-pressure. Leaves the door open without demanding a response.</div>
+      </div>
+      <div class="voice-row">
+        <span class="voice-tag no">✗ Not this</span>
+        <div class="voice-example no">"Don't miss out! Book your event rental package today before our peak season slots fill up. Limited availability — act now to secure your date!"</div>
+        <div class="voice-note">Pressure tactics are off-brand and undermine trust. Tom never talks like this.</div>
+      </div>
+
+      <div class="voice-row" style="margin-top:2px;">
+        <span class="voice-tag yes">✓ This</span>
+        <div class="voice-example yes">"Our 60-person package is $1,199 — that gets you the tent, six round tables, and 60 chairs. Delivery starts at $125 for Austin. Let me know what you need and I'll put together an exact quote."</div>
+        <div class="voice-note">Concrete, transparent, inviting. Tom's pricing philosophy in one paragraph.</div>
+      </div>
+      <div class="voice-row">
+        <span class="voice-tag no">✗ Not this</span>
+        <div class="voice-example no">"We offer competitive, affordable pricing with premium quality rentals designed to elevate your special occasion and create unforgettable memories for you and your guests."</div>
+        <div class="voice-note">Generic. Says nothing. Could be any rental company in any city.</div>
+      </div>
+
+      <div class="voice-row" style="margin-top:2px;">
+        <span class="voice-tag yes">✓ This</span>
+        <div class="voice-example yes">"Just wanted to say Happy Anniversary. One year since the wedding — I hope the day was everything you'd dreamed, and the year since has been even better."</div>
+        <div class="voice-note">Simple, human, no ask. This is the warmth that makes Tom different.</div>
+      </div>
+      <div class="voice-row">
+        <span class="voice-tag no">✗ Not this</span>
+        <div class="voice-example no">"Congratulations on your anniversary milestone! We hope your special day was amazing and that you had an incredible experience with Greenbelt Event Rentals™."</div>
+        <div class="voice-note">Corporate, hollow, performative. The exclamation marks don't add warmth — they replace it.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHOTOGRAPHY DIRECTION -->
+  <div class="section">
+    <span class="section-label">Visual Identity</span>
+    <div class="section-title">Photography <em>Direction</em></div>
+    <div class="section-intro">What the images should feel like, not just look like.</div>
+
+    <div class="rule-list">
+      <div class="rule-item">
+        <span class="rule-num">✓</span>
+        <div class="rule-text"><strong>Golden hour outdoor light.</strong> Warm, natural, early morning or late afternoon. Tents with soft light filtering through. Tables set for real events, not staged sterility.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">✓</span>
+        <div class="rule-text"><strong>People in the frame.</strong> Candid moments — guests laughing, couples at tables, families at backyard events. The equipment serves the moment, not the other way around.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">✓</span>
+        <div class="rule-text"><strong>Austin landscape context.</strong> Hill Country views, oak trees, residential yards. This is a local business. The geography should be visible.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">✓</span>
+        <div class="rule-text"><strong>Details that show quality.</strong> Chair legs, linen texture, clean glassware, tent stakes in grass. Pride of craft is visible in close-ups.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">✗</span>
+        <div class="rule-text">No stock photos of generic event spaces. Nothing that looks like it could be anywhere in America.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">✗</span>
+        <div class="rule-text">No overly posed or artificially lit product shots. Greenbelt is warm and natural — the images should be too.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHANNEL RULES -->
+  <div class="section">
+    <span class="section-label">Channels</span>
+    <div class="section-title">Rules by <em>Channel</em></div>
+    <div class="section-intro">The voice is consistent. The format adapts.</div>
+
+    <div class="rule-list">
+      <div class="rule-item">
+        <span class="rule-num">Email</span>
+        <div class="rule-text">First person from Tom. 3–5 short paragraphs maximum. One CTA per email. Subject lines are conversational questions or statements — never clickbait. Signs "— Tom."</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">Instagram</span>
+        <div class="rule-text">Captions in Tom's voice — short, event-specific, location-aware. Tag Austin venues and vendors. Behind-the-scenes of setup is the strongest content format. Always include the phone number in the bio.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">Google Ads</span>
+        <div class="rule-text">Lead with specificity: package names, pricing, guest count. "40-person tent rental Austin — $799" outperforms generic claims every time. Destination: contact page, not homepage.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">Website Copy</span>
+        <div class="rule-text">Transparent pricing on every page. Owner contact promise on every page. No corporate language. The phrase "you will be in contact with the owner" should appear or be implied everywhere.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-num">Review Response</span>
+        <div class="rule-text">Tom responds personally. Never templated. References the specific event or client interaction if possible. Thanks them by name. Short. Genuine.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONSISTENCY CHECKLIST -->
+  <div class="section">
+    <span class="section-label">Quality Control</span>
+    <div class="section-title">Pre-Publish <em>Checklist</em></div>
+    <div class="section-intro">Run every output through this before it goes live.</div>
+
+    <div class="checklist">
+      <div class="check-item">
+        <span class="check-icon">○</span>
+        <div class="check-text"><strong>The core test:</strong> Could Tom have written this himself?</div>
+      </div>
+      <div class="check-item">
+        <span class="check-icon">○</span>
+        <div class="check-text">Does it contain at least one specific, concrete detail (price, number, location, product name)?</div>
+      </div>
+      <div class="check-item">
+        <span class="check-icon">○</span>
+        <div class="check-text">Is it free of urgency tactics, superlatives, and marketing filler language?</div>
+      </div>
+      <div class="check-item">
+        <span class="check-icon">○</span>
+        <div class="check-text">Does it use first-person singular where appropriate?</div>
+      </div>
+      <div class="check-item">
+        <span class="check-icon">○</span>
+        <div class="check-text">Are the colors, fonts, and visual elements consistent with the palette above?</div>
+      </div>
+      <div class="check-item">
+        <span class="check-icon">○</span>
+        <div class="check-text">Is it mobile-readable? Short paragraphs, no horizontal overflow, tap-friendly CTAs?</div>
+      </div>
+      <div class="check-item">
+        <span class="check-icon">○</span>
+        <div class="check-text">Does it serve the client's moment — not just the business's agenda?</div>
+      </div>
+      <div class="check-item">
+        <span class="check-icon">○</span>
+        <div class="check-text">Has Tom reviewed and approved the copy before it sends or publishes?</div>
+      </div>
+    </div>
+
+    <div class="warning" style="margin-top:20px;">
+      <span class="warning-label">Non-Negotiable</span>
+      <p>No output goes live without Tom's approval on the first pass. Once the voice is calibrated and he confirms the tone is right, subsequent pieces can use this document as the standard. But the first version of everything goes through him.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section" style="margin-bottom:0;">
+    <p style="font-size:14px; text-align:center;">This document is the starting point for every piece of Greenbelt marketing. The ICP, the email sequences, the tone guide, and the roadmap are all built on top of this foundation.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="site-footer">
+  <div class="footer-brand">Greenbelt Event Rentals</div>
+  <div class="footer-meta">
+    JRZ Consulting Solutions · April 2026<br>
+    Confidential · Internal Use Only · Do Not Distribute
+  </div>
+</div>
+
+</body>
+</html>
