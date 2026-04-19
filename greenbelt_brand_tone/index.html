@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greenbelt Event Rentals — Brand Tone & Copy</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0d1a12; --bg-card:#111e16; --bg-raised:#172a1e;
+  --green-accent:#4a9462; --green-bright:#5eb87a; --sage:#8ab89a;
+  --bark:#c49a6c; --white:#ffffff;
+  --text-primary:#e8f0eb; --text-secondary:#7fa88a; --text-muted:#4a6a54;
+  --border:rgba(74,148,98,0.15); --border-bright:rgba(94,184,122,0.3);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{overflow-x:hidden;scroll-behavior:smooth;}
+body{background:var(--bg);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;color:var(--text-primary);width:100%;overflow-x:hidden;}
+
+.top-bar{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:10px;}
+.top-brand{font-family:'DM Serif Display',serif;font-size:14px;color:var(--green-bright);}
+.top-tag{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-muted);}
+.back-link{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-secondary);text-decoration:none;display:flex;align-items:center;gap:5px;}
+.back-link:hover{color:var(--green-bright);}
+
+.hero{padding:64px 24px 48px;max-width:620px;margin:0 auto;text-align:center;}
+.hero-eyebrow{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--green-accent);display:block;margin-bottom:20px;}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(28px,6vw,46px);line-height:1.15;color:var(--white);margin-bottom:16px;}
+.hero h1 em{font-style:italic;color:var(--green-bright);}
+.hero-sub{font-size:16px;color:var(--text-secondary);font-weight:300;line-height:1.6;}
+.hero-rule{width:36px;height:2px;background:var(--green-accent);margin:28px auto 0;}
+
+.content{max-width:640px;margin:0 auto;padding:0 24px 80px;}
+.section{margin-bottom:56px;}
+.section-label{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-accent);display:block;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border);}
+.section-title{font-family:'DM Serif Display',serif;font-size:clamp(20px,4vw,28px);color:var(--white);line-height:1.2;margin-bottom:8px;}
+.section-title em{font-style:italic;color:var(--green-bright);}
+.section-intro{font-size:15px;color:var(--text-secondary);margin-bottom:24px;font-weight:300;line-height:1.65;}
+p{font-size:15px;color:var(--text-secondary);margin-bottom:12px;line-height:1.7;}
+p strong{color:var(--text-primary);font-weight:600;}
+p:last-child{margin-bottom:0;}
+
+/* TONE AXES */
+.axis{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--green-accent);padding:20px 22px;margin-bottom:2px;}
+.axis-num{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-accent);display:block;margin-bottom:4px;}
+.axis-name{font-family:'DM Serif Display',serif;font-size:18px;color:var(--white);margin-bottom:8px;}
+.axis-desc{font-size:14.5px;color:var(--text-secondary);line-height:1.6;}
+.axis-desc strong{color:var(--text-primary);}
+
+/* VOICE EXAMPLES */
+.example-pair{margin-bottom:2px;}
+.ex-yes{background:rgba(74,148,98,0.08);border-left:3px solid var(--green-accent);padding:16px 20px;margin-bottom:1px;}
+.ex-no{background:rgba(139,60,60,0.07);border-left:3px solid rgba(180,80,80,0.6);padding:16px 20px;}
+.ex-tag{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;display:block;margin-bottom:8px;}
+.ex-tag.yes{color:var(--green-accent);}
+.ex-tag.no{color:rgba(200,100,100,0.8);}
+.ex-text{font-size:14.5px;font-style:italic;line-height:1.6;}
+.ex-text.yes{color:var(--text-primary);}
+.ex-text.no{color:var(--text-muted);text-decoration:line-through;}
+.ex-note{font-size:12px;color:var(--text-muted);margin-top:6px;}
+
+/* CHANNEL RULES */
+.channel{background:var(--bg-card);border:1px solid var(--border);padding:18px 22px;margin-bottom:2px;}
+.channel-name{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--green-bright);display:block;margin-bottom:10px;font-weight:600;}
+.channel-rules{list-style:none;margin:0;}
+.channel-rules li{font-size:14.5px;color:var(--text-secondary);padding:6px 0;border-bottom:1px solid var(--border);line-height:1.6;}
+.channel-rules li:last-child{border-bottom:none;}
+.channel-rules li strong{color:var(--text-primary);}
+
+/* WORD BANK */
+.word-section{margin-bottom:20px;}
+.word-label{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-accent);display:block;margin-bottom:10px;}
+.word-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.word-tag{font-size:13px;padding:5px 12px;background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);}
+.word-tag.avoid{color:var(--text-muted);text-decoration:line-through;opacity:0.6;}
+
+.callout{background:var(--bg-card);border:1px solid var(--border);border-left:3px solid var(--green-accent);padding:20px 22px;margin:20px 0;}
+.callout-label{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--green-accent);display:block;margin-bottom:8px;}
+.callout p{font-size:14.5px;margin-bottom:0;}
+
+.divider{border:none;border-top:1px solid var(--border);margin:40px 0;}
+.site-footer{border-top:1px solid var(--border);padding:28px 24px;text-align:center;}
+.footer-brand{font-family:'DM Serif Display',serif;font-size:14px;color:var(--green-bright);margin-bottom:6px;}
+.footer-meta{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);line-height:1.8;}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="top-brand">Greenbelt Event Rentals</div>
+  <div class="top-tag">Marketing Vault · 03</div>
+  <a href="greenbelt_vault_index.html" class="back-link">← Vault</a>
+</div>
+
+<div class="hero">
+  <span class="hero-eyebrow">03 — Copy</span>
+  <h1>Brand Tone <em>&</em><br>Copy Framework</h1>
+  <div class="hero-sub">Four tone axes. Writing rules by channel. The vocabulary that keeps every output sounding like one person — Tom.</div>
+  <div class="hero-rule"></div>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <span class="section-label">Foundation</span>
+    <div class="section-title">The Voice Is <em>Tom</em></div>
+    <div class="section-intro">Not "Greenbelt Event Rentals." Tom. Every piece of copy should read like something he could have written himself.</div>
+
+    <p>Tom's competitive advantage is not his inventory — it is his personality in contact with customers. Every five-star review names him specifically. <strong>The brand asset is a person, and the copy system exists to extend that person at scale without diluting him.</strong></p>
+
+    <p>When a wedding client who booked two years ago receives an anniversary email, it should feel like Tom remembered the date and personally reached out. The fact that an automation sent it is irrelevant — <strong>if it feels like Tom, it works like Tom.</strong></p>
+
+    <div class="callout">
+      <span class="callout-label">The Single Rule</span>
+      <p>Before publishing anything: <strong>could Tom have written this himself?</strong> Not "is this professional." Not "is this marketing best practice." Could Tom — warm, direct, Austin-local, slightly informal, genuinely proud of his work — have sent this? If no, rewrite it.</p>
+    </div>
+  </div>
+
+  <!-- 4 AXES -->
+  <div class="section">
+    <span class="section-label">Tone System</span>
+    <div class="section-title">The Four <em>Axes</em></div>
+    <div class="section-intro">Every piece of Greenbelt copy sits on these four spectrums. Know where you are on each one before you write.</div>
+
+    <div class="axis">
+      <span class="axis-num">Axis 01</span>
+      <div class="axis-name">Personal → Not Corporate</div>
+      <div class="axis-desc">Tom writes from himself, to a person. Not from a company, to a customer. <strong>First-person singular throughout.</strong> Signs as "Tom" — not "the Greenbelt team," not "we at Greenbelt Event Rentals," not "our team." The brand IS the person.</div>
+    </div>
+
+    <div class="axis">
+      <span class="axis-num">Axis 02</span>
+      <div class="axis-name">Specific → Not Vague</div>
+      <div class="axis-desc">Real numbers. Real package names. Real delivery windows. <strong>"$799 for 40 guests, tent, tables, and chairs" beats "affordable pricing for every occasion" every single time.</strong> Vague language signals that you're hiding something. Tom hides nothing — and his copy should prove that.</div>
+    </div>
+
+    <div class="axis">
+      <span class="axis-num">Axis 03</span>
+      <div class="axis-name">Confident → Not Pushy</div>
+      <div class="axis-desc">Tom knows his product is good. He doesn't need pressure tactics. <strong>No urgency manufacturing. No "limited availability." No "act now."</strong> The offer is available, the quality is real, the pricing is transparent — those facts do the selling. Tom's job is to make them available, not to pressure anyone into them.</div>
+    </div>
+
+    <div class="axis">
+      <span class="axis-num">Axis 04</span>
+      <div class="axis-name">Warm → Not Sentimental</div>
+      <div class="axis-desc">Tom acknowledges the human moment — a wedding, a birthday, an anniversary — without performing emotion about it. <strong>The warmth comes from remembering the person, not from decorating the message with feelings.</strong> "Happy Anniversary" lands harder than "We hope your special day was an absolutely magical experience." Less is more.</div>
+    </div>
+  </div>
+
+  <!-- EXAMPLES -->
+  <div class="section">
+    <span class="section-label">In Practice</span>
+    <div class="section-title">Yes / <em>No</em> Examples</div>
+    <div class="section-intro">The tone axes applied to real copy situations.</div>
+
+    <div class="example-pair">
+      <div class="ex-yes">
+        <span class="ex-tag yes">✓ Write This</span>
+        <div class="ex-text yes">"Hi Sarah, just wanted to check in — your event anniversary is coming up in about two months. If you're planning something again this year, I'd love to help. Same setup as last time, or something different — just reach out."</div>
+        <div class="ex-note">Personal opener, specific reference, low pressure, clear invitation, signs implicitly as Tom.</div>
+      </div>
+      <div class="ex-no">
+        <span class="ex-tag no">✗ Not This</span>
+        <div class="ex-text no">"Don't miss out! Secure your event rental package today before peak season availability is gone! Limited slots remaining — book now to guarantee your date!"</div>
+        <div class="ex-note">Manufactured urgency. Pressure tactics. Reads like every other marketing email. Tom would never say this.</div>
+      </div>
+    </div>
+
+    <div class="example-pair" style="margin-top:2px;">
+      <div class="ex-yes">
+        <span class="ex-tag yes">✓ Write This</span>
+        <div class="ex-text yes">"Our 60-person package is $1,199 — tent, six round tables, 60 chairs. Delivery starts at $125 for Austin. Let me know your date and what you need and I'll put together an exact quote."</div>
+        <div class="ex-note">Specific numbers, specific items, clear next step, no filler language.</div>
+      </div>
+      <div class="ex-no">
+        <span class="ex-tag no">✗ Not This</span>
+        <div class="ex-text no">"We offer premium, competitively priced event rental packages designed to elevate your special occasion and create unforgettable memories for you and your loved ones."</div>
+        <div class="ex-note">Could be any rental company in any city. Zero specificity. Says nothing Tom actually believes.</div>
+      </div>
+    </div>
+
+    <div class="example-pair" style="margin-top:2px;">
+      <div class="ex-yes">
+        <span class="ex-tag yes">✓ Write This</span>
+        <div class="ex-text yes">"Last note from me — I don't want to crowd your inbox. Whenever you're ready: (512) 710-8412 or greenbelteventrentals.com/contact. Hope to work with you someday."</div>
+        <div class="ex-note">Confident enough to close without desperation. Leaves the door open without groveling. The tone of someone who knows their value.</div>
+      </div>
+      <div class="ex-no">
+        <span class="ex-tag no">✗ Not This</span>
+        <div class="ex-text no">"We truly appreciate your interest in Greenbelt Event Rentals and would be honored to be considered for your upcoming event! Please don't hesitate to reach out at any time!"</div>
+        <div class="ex-note">Overly deferential. Exclamation marks replace genuine warmth. The tone of a company that doesn't believe in its own product.</div>
+      </div>
+    </div>
+
+    <div class="example-pair" style="margin-top:2px;">
+      <div class="ex-yes">
+        <span class="ex-tag yes">✓ Write This</span>
+        <div class="ex-text yes">"Just wanted to say Happy Anniversary. One year since the wedding — I hope the day was everything you'd dreamed, and the year since has been even better. It was genuinely an honor to be part of your day."</div>
+        <div class="ex-note">Simple. Real. No ask. The warmth comes from the specificity — "one year since the wedding" — not from decorative sentiment.</div>
+      </div>
+      <div class="ex-no">
+        <span class="ex-tag no">✗ Not This</span>
+        <div class="ex-text no">"Congratulations on your amazing anniversary milestone! 🎊 We hope you had an absolutely incredible and magical celebration! Wishing you all the happiness in the world!!"</div>
+        <div class="ex-note">Emoji overload. Superlatives replace emotion. Every sentence ends in an exclamation. It performs warmth instead of expressing it.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VOCABULARY -->
+  <div class="section">
+    <span class="section-label">Vocabulary</span>
+    <div class="section-title">Words Tom Uses — <em>Words He Doesn't</em></div>
+    <div class="section-intro">The specific language choices that signal authenticity.</div>
+
+    <div class="word-section">
+      <span class="word-label">Tom says these</span>
+      <div class="word-tags">
+        <span class="word-tag">reach out</span>
+        <span class="word-tag">your event</span>
+        <span class="word-tag">same day</span>
+        <span class="word-tag">no pressure</span>
+        <span class="word-tag">let me know</span>
+        <span class="word-tag">put together a quote</span>
+        <span class="word-tag">we're here</span>
+        <span class="word-tag">happy to help</span>
+        <span class="word-tag">I'll hold availability</span>
+        <span class="word-tag">no deposit until you're ready</span>
+        <span class="word-tag">same as last time</span>
+        <span class="word-tag">check availability</span>
+        <span class="word-tag">deal directly with me</span>
+      </div>
+    </div>
+
+    <div class="word-section" style="margin-top:16px;">
+      <span class="word-label">Tom never says these</span>
+      <div class="word-tags">
+        <span class="word-tag avoid">amazing experience</span>
+        <span class="word-tag avoid">unforgettable memories</span>
+        <span class="word-tag avoid">elevate your event</span>
+        <span class="word-tag avoid">limited availability</span>
+        <span class="word-tag avoid">act now</span>
+        <span class="word-tag avoid">premium solutions</span>
+        <span class="word-tag avoid">our team</span>
+        <span class="word-tag avoid">valued customer</span>
+        <span class="word-tag avoid">seamless experience</span>
+        <span class="word-tag avoid">top-tier</span>
+        <span class="word-tag avoid">world-class</span>
+        <span class="word-tag avoid">don't hesitate</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHANNEL RULES -->
+  <div class="section">
+    <span class="section-label">Channels</span>
+    <div class="section-title">Rules by <em>Channel</em></div>
+    <div class="section-intro">Same voice. Different format. Each channel has its own constraints.</div>
+
+    <div class="channel">
+      <span class="channel-name">Email — Automated Sequences</span>
+      <ul class="channel-rules">
+        <li><strong>Subject lines</strong>: Conversational questions or plain statements. Never clickbait. "Your anniversary is coming up — thinking of celebrating?" not "HUGE news about your upcoming event 🎉"</li>
+        <li><strong>Length</strong>: 3–5 short paragraphs. People read on phones. If it can't be read in 45 seconds, it's too long.</li>
+        <li><strong>CTA</strong>: One button, one ask per email. "Get a Quote" or "Check Availability" — never three competing links.</li>
+        <li><strong>Signature</strong>: Always "— Tom" with phone number. Never "The Greenbelt Team."</li>
+        <li><strong>Tone match</strong>: Wedding emails warmer. Corporate emails more direct. Personal/birthday emails most casual.</li>
+      </ul>
+    </div>
+
+    <div class="channel">
+      <span class="channel-name">Instagram / Social</span>
+      <ul class="channel-rules">
+        <li><strong>Caption length</strong>: Short-to-medium. Lead with the event, not the product. "Last Saturday in Round Rock — a backyard that became something special." Not "Check out our premium tent rental package!"</li>
+        <li><strong>Content priority</strong>: Setup photos and event results over product glamour shots. Real events convert. Staged inventory does not.</li>
+        <li><strong>Hashtags</strong>: Local-first. #AustinWedding #AustinEvents #BackyardWedding #CentralTexasEvents #AustinTentRental</li>
+        <li><strong>Bio</strong>: Phone number must be visible. Direct contact is the entire value proposition.</li>
+      </ul>
+    </div>
+
+    <div class="channel">
+      <span class="channel-name">Google Ads</span>
+      <ul class="channel-rules">
+        <li><strong>Headlines</strong>: Lead with specificity. "Austin Tent Rental — From $799" beats "Best Tent Rentals in Austin" every time.</li>
+        <li><strong>Description</strong>: Include the owner-contact promise. "Deal directly with the owner. Transparent pricing. Same-day quotes."</li>
+        <li><strong>Landing page</strong>: Send to the contact page, not the homepage. The goal is a quote request, not a browse session.</li>
+        <li><strong>Keywords</strong>: "tent rental Austin" · "backyard wedding rentals Austin" · "party tent rental Austin TX" · "event rental Austin 40 person"</li>
+      </ul>
+    </div>
+
+    <div class="channel">
+      <span class="channel-name">Website Copy</span>
+      <ul class="channel-rules">
+        <li><strong>Every page</strong>: The phrase "you will be in contact with the owner" or its equivalent should appear or be implied on every page of the site.</li>
+        <li><strong>Pricing pages</strong>: Show exact package prices. The transparency is the conversion mechanism.</li>
+        <li><strong>Contact page</strong>: The discount note for veterans, healthcare workers, and teachers should live on the contact page — it's the last thing they read before reaching out.</li>
+        <li><strong>Tone</strong>: Same as email — warm but direct, specific but not formal. The website speaks for Tom when he's not available to speak for himself.</li>
+      </ul>
+    </div>
+
+    <div class="channel">
+      <span class="channel-name">Review Responses</span>
+      <ul class="channel-rules">
+        <li><strong>Never templated</strong>: Every response should reference something specific about the event or the client's experience if possible.</li>
+        <li><strong>Short and real</strong>: Two to four sentences. "Thank you, [Name] — we loved setting up for your daughter's quinceañera. The setup crew said it was a beautiful evening. Looking forward to working with your family again."</li>
+        <li><strong>Never defensive</strong>: If a negative review exists, acknowledge it, take responsibility for what's fair, and offer to make it right offline.</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section" style="margin-bottom:0;">
+    <p style="font-size:14px;text-align:center;color:var(--text-muted);">This framework governs every output. For the actual email sequences built against this framework, see the Email Cadence document in the Vault.</p>
+  </div>
+
+</div>
+
+<div class="site-footer">
+  <div class="footer-brand">Greenbelt Event Rentals</div>
+  <div class="footer-meta">JRZ Consulting Solutions · April 2026<br>Confidential · Internal Use Only</div>
+</div>
+</body>
+</html>
